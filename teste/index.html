@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluguel de Motos em Nova Iguaçu - Planos Flexíveis para Você!</title>
+    <meta name="description" content="Alugue uma moto em Nova Iguaçu sem burocracia. Planos semanais e mensais para trabalhar ou para o dia a dia. Comece a rodar e faturar hoje mesmo!">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #FF6600; /* Laranja vibrante */
+            --secondary-color: #1a253a; /* Azul bem escuro */
+            --accent-color: #FFD700; /* Amarelo/Dourado para destaque */
+            --success-color: #2ecc71; /* Verde para ganhos */
+            --background-color: #f7f9fc;
+            --text-color: #333;
+            --white-color: #ffffff;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--body-font); line-height: 1.6; color: var(--text-color); background-color: var(--background-color); }
+        .container { max-width: 1100px; margin: auto; overflow: hidden; padding: 0 20px; }
+        section { padding: 60px 0; }
+        h1, h2, h3 { font-family: var(--heading-font); color: var(--secondary-color); line-height: 1.2; }
+        h2 { font-size: 2.8rem; text-align: center; margin-bottom: 40px; }
+        .text-center { text-align: center; }
+        .margin-bottom-sm { margin-bottom: 15px; }
+
+        /* --- Hero Section --- */
+        .hero { background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=1470&auto=format&fit=crop') no-repeat center center/cover; color: var(--white-color); padding: 100px 0; text-align: center; }
+        .hero h1 { font-size: 3.5rem; font-weight: 900; color: var(--white-color); margin-bottom: 15px; }
+        .hero p { font-size: 1.4rem; max-width: 700px; margin: 0 auto 30px auto; }
+        
+        /* --- Botão CTA --- */
+        .cta-button { display: inline-block; background: var(--primary-color); color: var(--white-color); padding: 18px 35px; text-decoration: none; font-weight: 700; font-size: 1.2rem; font-family: var(--heading-font); border-radius: 50px; border: none; cursor: pointer; text-align: center; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4); }
+        .cta-button:hover { background-color: #e65c00; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 102, 0, 0.5); }
+
+        /* --- Seção de Benefícios --- */
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .benefit-card { background: var(--white-color); padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-align: center; border-top: 4px solid var(--primary-color); }
+        .benefit-card .icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 15px; }
+        .benefit-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+
+        /* --- Seção de Planos --- */
+        #plans { background-color: #eef2f9; }
+        .plans-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .plan-card { background: var(--white-color); padding: 30px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 320px; text-align: center; border: 2px solid #eee; position: relative; overflow: hidden; }
+        .plan-card.popular { border: 2px solid var(--primary-color); transform: scale(1.05); }
+        .popular-badge { position: absolute; top: 15px; right: -30px; background: var(--accent-color); color: var(--secondary-color); padding: 5px 30px; transform: rotate(45deg); font-weight: 700; font-size: 0.9rem; }
+        .plan-card h3 { font-size: 1.8rem; }
+        .plan-card .price { font-size: 3.5rem; font-weight: 900; font-family: var(--heading-font); color: var(--primary-color); margin: 10px 0; }
+        .plan-card .price span { font-size: 1.2rem; font-weight: 500; color: #666; }
+        .plan-card ul { list-style: none; margin: 20px 0; }
+        .plan-card ul li { margin-bottom: 10px; font-size: 1rem; }
+        .plan-card ul li .fa-check { color: var(--success-color); margin-right: 8px; }
+
+        /* --- Como Funciona --- */
+        .how-it-works { background-color: #eef2f9; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
+        .step .icon { font-size: 3.5rem; color: var(--secondary-color); margin-bottom: 20px; background: var(--white-color); width: 90px; height: 90px; line-height: 90px; border-radius: 50%; display: inline-block; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .step h3 { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 10px; }
+        
+        /* --- NOVA SEÇÃO: Fonte de Renda --- */
+        .income-section .intro-text { text-align: center; max-width: 700px; margin: -20px auto 40px auto; font-size: 1.1rem; }
+        .income-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .income-card { background: var(--white-color); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-align: center; border-bottom: 4px solid var(--success-color); }
+        .income-card .icon { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+        .income-card h3 { font-size: 1.4rem; }
+        .income-card .apps { font-size: 0.9rem; color: #666; margin: 5px 0 15px 0; }
+        .income-card .earnings { font-size: 1.8rem; font-weight: 700; font-family: var(--heading-font); color: var(--success-color); }
+        .earnings-simulator { background: var(--secondary-color); color: var(--white-color); padding: 30px; border-radius: 10px; text-align: center; max-width: 800px; margin: 20px auto 0 auto; }
+        .earnings-simulator h4 { font-size: 1.5rem; color: var(--accent-color); margin-bottom: 10px; }
+        .earnings-simulator .average-profit { font-size: 3.5rem; font-weight: 900; font-family: var(--heading-font); color: var(--white-color); line-height: 1; }
+        .earnings-simulator .conditions { font-size: 1rem; color: #ccc; }
+
+        /* --- Seção de Depoimentos --- */
+        .testimonials { background-color: #eef2f9; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .testimonial-card { background: var(--white-color); padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 5px solid var(--accent-color); }
+        .testimonial-card .stars { color: var(--accent-color); margin-bottom: 15px; }
+        .testimonial-card p.quote { font-style: italic; margin-bottom: 15px; }
+        .testimonial-card .author { font-weight: 700; }
+
+        /* --- Seção do Formulário --- */
+        .contact { background: var(--secondary-color); }
+        .contact h2 { color: var(--white-color); }
+        .form-container { max-width: 600px; margin: 0 auto; background: var(--white-color); padding: 40px; border-radius: 10px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 700; }
+        .form-group input { width: 100%; padding: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; }
+        .form-container .cta-button { width: 100%; }
+
+        /* --- Footer --- */
+        footer { background: #111; color: #aaa; text-align: center; padding: 20px 0; }
+
+        /* --- Responsividade --- */
+        @media (max-width: 768px) {
+            h2 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .plans-grid { flex-direction: column; align-items: center; }
+            .plan-card.popular { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Aluguel de Moto em Nova Iguaçu? É Pra Já!</h1>
+            <p>Acelere seus ganhos e sua rotina com planos flexíveis, zero burocracia e as melhores motos da região.</p>
+            <a href="#contact-form" class="cta-button">QUERO MINHA MOTO AGORA</a>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <h2>Vantagens que te colocam na frente</h2>
+            <div class="benefits-grid">
+                 <div class="benefit-card"> <div class="icon"><i class="fa-solid fa-file-circle-check"></i></div> <h3>Aluguel Descomplicado</h3> <p>Aprovação rápida e sem consulta ao SPC/Serasa. Você só precisa de CNH e comprovante de residência.</p> </div>
+                 <div class="benefit-card"> <div class="icon"><i class="fa-solid fa-dollar-sign"></i></div> <h3>Economia Real</h3> <p>Fuja dos juros de financiamento e dos custos de manutenção. Pague só pelo tempo que usar.</p> </div>
+                 <div class="benefit-card"> <div class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></div> <h3>Manutenção Inclusa</h3> <p>Qualquer problema, é por nossa conta. Manutenção preventiva e socorro inclusos no seu plano.</p> </div>
+                 <div class="benefit-card"> <div class="icon"><i class="fa-solid fa-shield-halved"></i></div> <h3>Segurança Garantida</h3> <p>Nossas motos são revisadas e contam com seguro contra roubo e furto. Sua tranquilidade em primeiro lugar.</p> </div>
+                 <div class="benefit-card"> <div class="icon"><i class="fa-solid fa-calendar-days"></i></div> <h3>Planos Flexíveis</h3> <p>Escolha o plano que mais combina com você: semanal ou mensal, com a liberdade que você precisa.</p> </div>
+                 <div class="benefit-card"> <div class="icon"><i class="fa-solid fa-motorcycle"></i></div> <h3>Motos Novas</h3> <p>Trabalhamos com uma frota de motos novas e econômicas, prontas para rodar e te dar o melhor desempenho.</p> </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="plans" class="plans-section">
+        <div class="container">
+            <h2>Planos que cabem no seu bolso</h2>
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <h3>Plano Semanal</h3> <p class="margin-bottom-sm">Ideal para projetos curtos ou para experimentar.</p> <div class="price">R$350 <span>/semana</span></div>
+                    <ul> <li><i class="fas fa-check"></i> Manutenção inclusa</li> <li><i class="fas fa-check"></i> Seguro contra roubo/furto</li> <li><i class="fas fa-check"></i> Suporte 24h</li> <li><i class="fas fa-check"></i> Sem fidelidade longa</li> </ul>
+                    <a href="#contact-form" class="cta-button">ESCOLHER PLANO</a>
+                </div>
+                <div class="plan-card popular">
+                    <div class="popular-badge">Mais Popular</div>
+                    <h3>Plano Mensal</h3> <p class="margin-bottom-sm">O melhor custo-benefício para quem roda todo dia.</p> <div class="price">R$1200 <span>/mês</span></div>
+                    <ul> <li><i class="fas fa-check"></i> Manutenção inclusa</li> <li><i class="fas fa-check"></i> Seguro contra roubo/furto</li> <li><i class="fas fa-check"></i> Suporte 24h</li> <li><i class="fas fa-check"></i> <strong>Maior Economia</strong></li> </ul>
+                    <a href="#contact-form" class="cta-button">ESCOLHER PLANO</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="how-it-works">
+        <div class="container">
+            <h2>Alugar sua moto é simples assim:</h2>
+            <div class="steps-grid">
+                <div class="step"> <div class="icon"><i class="fa-brands fa-whatsapp"></i></div> <h3>1. Chama no Zap</h3> <p>Preencha o formulário ou chame direto no WhatsApp para iniciar seu cadastro.</p> </div>
+                <div class="step"> <div class="icon"><i class="fa-solid fa-id-card"></i></div> <h3>2. Envie os Documentos</h3> <p>Envie fotos da sua CNH e comprovante de residência. Análise rápida e sem complicação.</p> </div>
+                <div class="step"> <div class="icon"><i class="fa-solid fa-key"></i></div> <h3>3. Retire sua Moto</h3> <p>Após a aprovação, é só vir buscar sua moto aqui em Nova Iguaçu e começar a rodar!</p> </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="income-section">
+        <div class="container">
+            <h2>Transforme a Moto em Fonte de Renda</h2>
+            <p class="intro-text">Com uma moto alugada, você pode começar a trabalhar imediatamente em diversos aplicativos e serviços de entrega. O investimento se paga em menos de uma semana!</p>
+            <div class="income-grid">
+                <div class="income-card">
+                    <div class="icon"><i class="fa-solid fa-box-open"></i></div>
+                    <h3>Delivery Apps</h3>
+                    <p class="apps">iFood, Rappi, Uber Eats</p>
+                    <div class="earnings">R$ 3.000 - R$ 5.000/mês</div>
+                </div>
+                <div class="income-card">
+                    <div class="icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Transporte de Passageiros</h3>
+                    <p class="apps">Uber Moto, 99 Moto</p>
+                    <div class="earnings">R$ 2.500 - R$ 4.000/mês</div>
+                </div>
+                <div class="income-card">
+                    <div class="icon"><i class="fa-solid fa-building"></i></div>
+                    <h3>Entregas Empresariais</h3>
+                    <p class="apps">Contratos fixos com empresas</p>
+                    <div class="earnings">R$ 3.500 - R$ 6.000/mês</div>
+                </div>
+            </div>
+            <div class="earnings-simulator">
+                <h4>Simulador de Ganhos</h4>
+                <div class="average-profit">Lucro médio: R$ 2.800/mês</div>
+                <p class="conditions">*Trabalhando em média 6 horas por dia, 6 dias por semana. Ganhos podem variar.</p>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials">
+        <div class="container">
+            <h2>O que nossos parceiros de Nova Iguaçu dizem</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card"> <div class="stars"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> </div> <p class="quote">"Alugar foi a melhor decisão. Sem a dor de cabeça da manutenção, meu lucro com as entregas aumentou muito. Recomendo demais!"</p> <p class="author">- João P., Entregador de App</p> </div>
+                <div class="testimonial-card"> <div class="stars"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> </div> <p class="quote">"A agilidade no trânsito é outra vida. Chego muito mais rápido nos clientes. O atendimento da equipe é nota 10, sempre prestativos."</p> <p class="author">- Mariana S., Autônoma</p> </div>
+                <div class="testimonial-card"> <div class="stars"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> </div> <p class="quote">"Estava parado e vi no aluguel uma oportunidade. Hoje faço minha própria renda e tenho flexibilidade de horário. A moto é nova e econômica."</p> <p class="author">- Lucas F., Motoboy</p> </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact-form">
+        <div class="container">
+            <div class="text-center">
+                <h2>Falta pouco para você acelerar!</h2>
+                <p style="color: #eee; max-width: 600px; margin: 0 auto 30px auto;">Preencha seus dados abaixo que nossa equipe de Nova Iguaçu entrará em contato via WhatsApp em poucos minutos.</p>
+            </div>
+            <div class="form-container">
+                <form id="leadForm">
+                    <div class="form-group"> <label for="name">Seu Nome Completo:</label> <input type="text" id="name" name="name" required placeholder="Digite seu nome"> </div>
+                    <div class="form-group"> <label for="phone">Seu WhatsApp:</label> <input type="tel" id="phone" name="phone" required placeholder="(21) 99999-9999"> </div>
+                    <button type="submit" class="cta-button">QUERO GARANTIR MINHA MOTO!</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Motos Iguaçu - Aluguel de Motos em Nova Iguaçu-RJ.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('leadForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            if (name.trim() === '' || phone.trim() === '') {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+            alert(`Obrigado, ${name}! Recebemos seus dados. Nossa equipe de Nova Iguaçu já vai te chamar no WhatsApp ${phone}.`);
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
